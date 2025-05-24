@@ -1,0 +1,14 @@
+{
+  "name": "ecommerce-product-page-main",
+  "version": "1.0.0",
+  "description": "Ecommerce website",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Tunde Adelani",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}

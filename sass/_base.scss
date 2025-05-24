@@ -1,0 +1,25 @@
+/* COLOR VARIABLES */
+$color-primary: hsl(26, 100%, 55%);
+$color-secondary: hsl(25, 100%, 94%);
+$color-dark-blue: hsl(220, 13%, 13%);
+$color-gray-blue: hsl(220, 14%, 75%);
+$color-dark-gray-blue: hsl(219, 9%, 45%);
+$color-light-gray-blue: hsl(223, 64%, 98%);
+$color-white: hsl(0, 0%, 100%);
+$color-black: hsl(0, 0%, 0%);
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}

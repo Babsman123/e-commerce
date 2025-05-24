@@ -1,0 +1,204 @@
+/////////////////////////////////
+/// LOGO
+
+/////////////////////////////////
+/// NAV LINK
+.nav {
+  flex: 0 0 70%;
+  align-self: stretch;
+  //   border: 1px solid green;
+
+  &__links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    align-self: stretch;
+    list-style-type: none;
+
+    // border: 1px solid red;
+    display: flex;
+    // align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+  &__link {
+    // border: 2px solid red;
+    text-decoration: none;
+    color: $color-dark-gray-blue;
+    font-size: 1.4rem;
+    font-weight: 700;
+    // margin-right: 2rem;
+    cursor: pointer;
+    position: relative;
+    // height: 100%;
+
+    // align-self: stretch;
+    display: flex;
+    align-items: center;
+
+    // &:hover {
+    //   background-color: red;
+    // }
+
+    &:hover::before {
+      content: "";
+      position: absolute;
+      height: 0.25rem;
+      width: 100%;
+      background-color: $color-primary;
+      bottom: 0;
+    }
+  }
+}
+
+/////////////////////////////////////
+/// USER
+.user-nav {
+  display: flex;
+  align-items: center;
+
+  &__cart-box {
+    margin-right: 3rem;
+    position: relative;
+  }
+  &__notification {
+    background-color: $color-primary;
+    font-size: 0.8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    color: #fff;
+    position: absolute;
+    top: -1rem;
+    right: -1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__user-photo {
+    height: 4rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    // width: 3.25rem;
+
+    &:hover {
+      border: 2px solid $color-primary;
+      border-radius: 50%;
+    }
+  }
+}
+
+/////////////////////////////////
+/// SNEAKER IMAGE
+.sneaker__image {
+  flex: 0 0 50%;
+}
+
+//////////////////////////////////
+/// SNEAKER CONTENT
+.sneaker__content {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border: 2px solid green;
+
+  .heading--1 {
+    font-size: 5rem;
+    color: $color-black;
+    margin-bottom: 3rem;
+  }
+
+  .heading--2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &--text {
+    font-size: 1.7rem;
+    padding-right: 5rem;
+    margin-bottom: 2rem;
+  }
+  .sneaker__new-price {
+    display: flex;
+    align-items: center;
+  }
+  .current-price {
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: $color-black;
+  }
+  .discount {
+    background-color: $color-dark-blue;
+    color: $color-white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.5rem;
+    margin-left: 1.3rem;
+  }
+
+  .old-price {
+    color: $color-gray-blue;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration-line: line-through;
+  }
+
+  .sneaker__cart {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+
+    &-number {
+      display: flex;
+      width: 30%;
+      height: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $color-light-gray-blue;
+      padding: 0.5rem 1rem;
+      margin-right: 2rem;
+      box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+      border-radius: 0.5rem;
+    }
+    img {
+      cursor: pointer;
+    }
+    .cart-number {
+      font-size: 1.4rem;
+    }
+
+    &-btn {
+      border-radius: 0.5rem;
+      background-color: $color-primary;
+    }
+    .cart-btn {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 800;
+      padding: 1.5rem 7rem;
+      color: $color-dark-blue;
+
+      &__img {
+        -webkit-mask: url("../images/icon-cart.svg") no-repeat center/ contain;
+        mask: url("../images/icon-cart.svg") no-repeat center / contain;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgb(17, 16, 16);
+        margin-right: 1rem;
+      }
+    }
+  }
+}

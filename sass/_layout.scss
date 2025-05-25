@@ -3,6 +3,7 @@
   min-height: 50rem;
   margin: 1.5rem auto;
   border: 1px solid green;
+  position: relative;
 }
 
 .header {
@@ -17,10 +18,10 @@
 .sneaker {
   display: flex;
 
-  &__image {
-    border: 2px solid yellow;
-    img {
-      width: 20%;
-    }
-  }
+  //   &__image {
+  //     border: 2px solid yellow;
+  //     img {
+  //       width: 20%;
+  //     }
+  //   }
 }

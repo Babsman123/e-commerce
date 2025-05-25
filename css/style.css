@@ -47,7 +47,8 @@ body {
   align-items: center; }
   .user-nav__cart-box {
     margin-right: 3rem;
-    position: relative; }
+    position: relative;
+    cursor: pointer; }
   .user-nav__notification {
     background-color: #ff7d1a;
     font-size: 0.8rem;
@@ -68,6 +69,31 @@ body {
     .user-nav__user-photo:hover {
       border: 2px solid #ff7d1a;
       border-radius: 50%; }
+
+.cart--list {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+  width: 25%;
+  height: 29%;
+  top: 6rem;
+  right: 0;
+  border-radius: 0.5rem; }
+  .cart--list .heading--3 {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: #68707d;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #b6bcc8;
+    box-shadow: 0 0.2rem 0.05rem rgba(182, 188, 200, 0.1); }
+  .cart--list .cart--empty {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #68707d;
+    text-align: center;
+    padding: 1.5rem 0; }
 
 .sneaker__image {
   flex: 0 0 50%; }
@@ -154,7 +180,8 @@ body {
   max-width: 120rem;
   min-height: 50rem;
   margin: 1.5rem auto;
-  border: 1px solid green; }
+  border: 1px solid green;
+  position: relative; }
 
 .header {
   height: 7rem;
@@ -165,7 +192,3 @@ body {
 
 .sneaker {
   display: flex; }
-  .sneaker__image {
-    border: 2px solid yellow; }
-    .sneaker__image img {
-      width: 20%; }

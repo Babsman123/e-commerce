@@ -132,12 +132,119 @@
 /// SNEAKER IMAGE
 .sneaker__image {
   flex: 0 0 50%;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  position: relative;
+
+  .slider {
+    width: 80%;
+    height: 65rem;
+    margin: 0 auto;
+    position: relative;
+    // border: 1px solid yellow;
+
+    /* IN THE END */
+    overflow: hidden;
+  }
+
+  .slide {
+    // display: none;
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+    width: 100%;
+    height: 75%;
+
+    // /* THIS creates the animation! */
+    transition: transform 1s;
+  }
+
+  .slide > img {
+    /* Only for images that have different size than slide */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.9rem;
+    // border: 2px solid red;
+    position: relative;
+  }
+
+  .slider__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    font-family: inherit;
+    color: #333;
+    border-radius: 50%;
+    height: 5.5rem;
+    width: 5.5rem;
+    font-size: 3.25rem;
+    cursor: pointer;
+  }
+
+  .slider__btn--left {
+    left: 6%;
+    transform: translate(-50%, -50%);
+  }
+
+  .slider__btn--right {
+    right: 6%;
+    transform: translate(50%, -50%);
+  }
+
+  .slide-thumb {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    // top: 50rem;
+
+    position: absolute;
+    bottom: 0;
+
+    .product-list {
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      // border: 1px solid green;
+      position: relative;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      &:hover {
+        border: 2px solid $color-primary;
+        border-radius: 0.5rem;
+      }
+    }
+
+    &__image {
+      // display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
+      position: relative;
+
+      &:hover {
+        opacity: 0.2;
+        position: relative;
+      }
+    }
+  }
 }
 
 //////////////////////////////////
 /// SNEAKER CONTENT
 .sneaker__content {
-  flex: 0 0 40%;
+  flex: 0 0 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

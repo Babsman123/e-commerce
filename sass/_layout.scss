@@ -1,6 +1,6 @@
 .container {
   max-width: 120rem;
-  min-height: 50rem;
+  min-height: 60rem;
   margin: 1.5rem auto;
   border: 1px solid green;
   position: relative;
@@ -17,6 +17,7 @@
 
 .sneaker {
   display: flex;
+  flex-direction: row;
 
   //   &__image {
   //     border: 2px solid yellow;

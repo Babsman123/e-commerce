@@ -8,6 +8,9 @@ $color-light-gray-blue: hsl(223, 64%, 98%);
 $color-white: hsl(0, 0%, 100%);
 $color-black: hsl(0, 0%, 0%);
 
+/* RESPONSIVE BREAKPOINT */
+$bp-small: 37.5em;
+
 html {
   font-size: 62.5%;
 }
@@ -22,4 +25,6 @@ html {
 
 body {
   min-height: 100vh;
+  position: relative;
+  // border: 2px solid red;
 }

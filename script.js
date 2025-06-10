@@ -60,25 +60,25 @@ createDots();
 gotoSlide(curSlide);
 activeImage(0);
 
-// btnRight.addEventListener("click", () => {
-//   if (curSlide === maxSlide - 1) {
-//     curSlide = 0;
-//   } else {
-//     curSlide++;
-//   }
-//   gotoSlide(curSlide);
-//   activeImage(curSlide);
-// });
+btnRight.addEventListener("click", () => {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  gotoSlide(curSlide);
+  activeImage(curSlide);
+});
 
-// btnLeft.addEventListener("click", () => {
-//   if (curSlide === 0) {
-//     curSlide = 0;
-//   } else {
-//     curSlide--;
-//   }
-//   gotoSlide(curSlide);
-//   activeImage(curSlide);
-// });
+btnLeft.addEventListener("click", () => {
+  if (curSlide === 0) {
+    curSlide = 0;
+  } else {
+    curSlide--;
+  }
+  gotoSlide(curSlide);
+  activeImage(curSlide);
+});
 imageThumb.addEventListener("click", function (e) {
   if (e.target.classList.contains("slide-thumb__image")) {
     const { slide } = e.target.dataset;
@@ -92,7 +92,9 @@ let cartNumberText = 0;
 let totalPrice = 125;
 let hasRun = false;
 
-addCartButton.addEventListener("click", () => {
+addCartButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
   if (cartNumberText > 0) {
     userNotify.style.display = "flex";
     userNotify.textContent = cartNumberText;

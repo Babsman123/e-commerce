@@ -1,5 +1,16 @@
 /////////////////////////////////
-/// LOGO
+/// LOGO AND MENU
+.menu-open {
+  display: none;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+
+  @media only screen and (max-width: $bp-small) {
+    display: inline-block;
+  }
+}
 
 /////////////////////////////////
 /// NAV LINK
@@ -8,10 +19,25 @@
   align-self: stretch;
   //   border: 1px solid green;
 
+  @media only screen and (max-width: $bp-small) {
+    display: none;
+    position: fixed;
+    width: 75%;
+    min-height: 100vh;
+    background-color: $color-light-gray-blue;
+    z-index: 100;
+    padding: 2rem 2rem;
+  }
+
   &__links {
     height: 100%;
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      margin-top: 4rem;
+    }
   }
 
   &__item {
@@ -24,6 +50,10 @@
 
     &:not(:last-child) {
       margin-right: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      margin-top: 2rem;
     }
   }
   &__link {
@@ -54,6 +84,18 @@
       bottom: 0;
     }
   }
+
+  .nav__menu-close {
+    display: none;
+
+    @media only screen and (max-width: $bp-small) {
+      display: block;
+      width: 100%;
+
+      position: absolute;
+      top: 5%;
+    }
+  }
 }
 
 /////////////////////////////////////
@@ -66,6 +108,10 @@
     margin-right: 3rem;
     position: relative;
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 1.5rem;
+    }
   }
   &__notification {
     background-color: $color-primary;
@@ -109,6 +155,12 @@
   //   padding: 1.5rem 2rem;
   border-radius: 0.5rem;
 
+  @media only screen and (max-width: $bp-small) {
+    z-index: 1000;
+    width: 60%;
+    right: 1rem;
+  }
+
   .heading--3 {
     font-size: 1.8rem;
     font-weight: bolder;
@@ -125,6 +177,10 @@
     color: $color-dark-gray-blue;
     text-align: center;
     padding: 1.5rem 0;
+
+    @media only screen and (max-width: $bp-small) {
+      padding: 3rem 0;
+    }
   }
 }
 
@@ -135,17 +191,21 @@
 /// SNEAKER IMAGE
 .sneaker__image {
   flex: 0 0 50%;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   position: relative;
+  // height: 45rem;
 
   .slider {
     width: 80%;
     height: 65rem;
     margin: 0 auto;
     position: relative;
-    // border: 1px solid yellow;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      height: 35rem;
+      // height: 40%;
+      border: 1px solid red;
+    }
 
     /* IN THE END */
     overflow: hidden;
@@ -157,7 +217,10 @@
     top: 1.5rem;
     left: 0;
     width: 100%;
-    height: 75%;
+
+    @media only screen and (max-width: $bp-small) {
+      top: 0rem;
+    }
 
     // /* THIS creates the animation! */
     transition: transform 1s;
@@ -171,9 +234,14 @@
     border-radius: 0.9rem;
     // border: 2px solid red;
     position: relative;
+    @media only screen and (max-width: $bp-small) {
+      border-radius: 0;
+      object-fit: contain;
+    }
   }
 
   .slider__btn {
+    display: none;
     position: absolute;
     top: 50%;
     z-index: 10;
@@ -183,19 +251,23 @@
     font-family: inherit;
     color: #333;
     border-radius: 50%;
-    height: 5.5rem;
-    width: 5.5rem;
+    height: 4rem;
+    width: 4rem;
     font-size: 3.25rem;
     cursor: pointer;
+
+    @media only screen and (max-width: $bp-small) {
+      display: inline-block;
+    }
   }
 
   .slider__btn--left {
-    left: 6%;
+    left: 10%;
     transform: translate(-50%, -50%);
   }
 
   .slider__btn--right {
-    right: 6%;
+    right: 10%;
     transform: translate(50%, -50%);
   }
 
@@ -211,6 +283,10 @@
     backface-visibility: hidden;
     transition: transform 0.2s;
     bottom: 0;
+
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
 
     .product-list {
       height: 100%;
@@ -259,10 +335,19 @@
   justify-content: center;
   border: 2px solid green;
 
+  @media only screen and (max-width: $bp-small) {
+    margin-top: 3rem;
+    padding: 0 1.5rem;
+  }
+
   .heading--1 {
     font-size: 5rem;
     color: $color-black;
     margin-bottom: 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 3.5rem;
+    }
   }
 
   .heading--2 {
@@ -274,6 +359,17 @@
     font-size: 1.7rem;
     padding-right: 5rem;
     margin-bottom: 2rem;
+  }
+  .sneaker__price {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
   .sneaker__new-price {
     display: flex;
@@ -307,6 +403,10 @@
     margin-top: 2rem;
     width: 100%;
 
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+    }
+
     &-number {
       display: flex;
       width: 30%;
@@ -319,6 +419,12 @@
       margin-right: 2rem;
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
       border-radius: 0.5rem;
+
+      @media only screen and (max-width: $bp-small) {
+        width: 100%;
+        margin: 1.5rem 0;
+        padding: 1.5rem 1rem;
+      }
     }
     img {
       cursor: pointer;
@@ -331,6 +437,14 @@
       border-radius: 0.5rem;
       background-color: $color-primary;
     }
+    // .sneaker__cart-btn {
+    //   // display: none;
+    //   width: 100%;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   padding: 2rem 2rem;
+    // }
     .cart-btn {
       display: flex;
       align-items: center;
@@ -339,6 +453,10 @@
       font-weight: 800;
       padding: 1.5rem 7rem;
       color: $color-dark-blue;
+
+      @media only screen and (max-width: $bp-small) {
+        padding: 0rem 0rem;
+      }
 
       &__img {
         -webkit-mask: url("../images/icon-cart.svg") no-repeat center/ contain;
@@ -358,7 +476,6 @@
   flex-direction: column;
   .cart--item {
     display: flex;
-    border: 2px solid green;
     height: 12vh;
     width: 100%;
   }
@@ -380,23 +497,25 @@
   .cart--item-info {
     flex: 0 0 67%;
     height: 100%;
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     justify-content: center;
     .cart-narration {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
+      color: $color-dark-gray-blue;
       font-weight: bold;
     }
     .cart-total-price {
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #111;
     }
 
     .cart-price-times {
       display: flex;
+      font-size: 1.2rem;
+      color: $color-dark-gray-blue;
     }
   }
   .cart-icon-delete {
@@ -407,7 +526,38 @@
     margin-right: 0;
     width: 10%;
     height: 35%;
-    border: 1px solid yellow;
     cursor: pointer;
   }
+  .cart-checkout {
+    display: block;
+    text-align: center;
+    background-color: $color-primary;
+    padding: 1.5rem 2rem;
+    margin: 2rem 1.5rem;
+    border-radius: 0.7rem;
+
+    a {
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: $color-black;
+    }
+  }
+}
+
+/* OVERLAY BACKGROUND */
+.overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: -10%;
+  background-color: rgba($color-black, 0.5);
+  backdrop-filter: blur(5px);
+
+  // border: 1px solid green;
+}
+
+.overlay--display {
+  display: block;
 }

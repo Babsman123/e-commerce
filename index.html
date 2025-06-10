@@ -29,7 +29,10 @@
   <body>
     <div class="container">
       <header class="header">
-        <img src="./images/logo.svg" alt="sneakers-logo" class="logo" />
+        <div class="logo-menu">
+          <img src="./images/icon-menu.svg" alt="icon-menu" class="menu-open" />
+          <img src="./images/logo.svg" alt="sneakers-logo" class="logo" />
+        </div>
 
         <nav class="nav">
           <ul class="nav__links">
@@ -49,6 +52,10 @@
               <a href="#" class="nav__link">Contact</a>
             </li>
           </ul>
+
+          <div class="nav__menu-close">
+            <img src="./images/icon-close.svg" alt="icon-close" />
+          </div>
         </nav>
 
         <nav class="user-nav">
@@ -93,8 +100,12 @@
             </div>
             <!-- <div class="slide"><img src="img/img-3.jpg" alt="Photo 3" /></div>
         <div class="slide"><img src="img/img-4.jpg" alt="Photo 4" /></div> -->
-            <!-- <button class="slider__btn slider__btn--left">&larr;</button>
-            <button class="slider__btn slider__btn--right">&rarr;</button> -->
+            <button class="slider__btn slider__btn--left">
+              <img src="./images/icon-previous.svg" alt="icon-previous" />
+            </button>
+            <button class="slider__btn slider__btn--right">
+              <img src="./images/icon-next.svg" alt="icon-next" />
+            </button>
             <div class="slide-thumb"></div>
           </div>
         </div>
@@ -140,6 +151,7 @@
         </div>
       </section>
     </div>
+    <div class="overlay"></div>
 
     <!-- <div class="testing">
       <img src="./images/image-product-1-thumbnail.jpg" alt="" />

@@ -4,6 +4,7 @@ const slides = document.querySelectorAll(".slide");
 const btnLeft = document.querySelector(".slider__btn--left");
 const btnRight = document.querySelector(".slider__btn--right");
 const imageThumb = document.querySelector(".slide-thumb");
+const imageOverlay = document.querySelector(".slide-overlay");
 
 const increaseCartNum = document.querySelector(".icon-plus");
 const decreaseCartNum = document.querySelector(".icon-minus");
@@ -14,6 +15,10 @@ const iconCartShow = document.querySelector(".icon-cart");
 const cartBox = document.querySelector(".cart--list");
 const cartEmpty = document.querySelector(".cart--empty");
 const addCartButton = document.querySelector(".cart-btn");
+const navBar = document.querySelector(".nav");
+const menuOpen = document.querySelector(".menu-open");
+const menuClose = document.querySelector(".menu-close");
+const overlay = document.querySelector(".overlay");
 
 /*IMAGE SLIDER STARTS HERE */
 let curSlide = 0;
@@ -26,7 +31,7 @@ const gotoSlide = function (slide) {
 };
 
 const createDots = function () {
-  slides.forEach(function (_, i) {
+  slides.forEach(function (ev, i) {
     imageThumb.insertAdjacentHTML(
       "beforeend",
       `<div class= "product-list" data-slide = "${i}">
@@ -35,6 +40,19 @@ const createDots = function () {
          }-thumbnail.jpg" class = "slide-thumb__image" data-slide = "${i}"/>
       </div>`
     );
+    imageOverlay.insertAdjacentHTML(
+      "beforeend",
+      `<div class= "product-list" data-slide = "${i}">
+         <img src = "./images/image-product-${
+           i + 1
+         }-thumbnail.jpg" class = "slide-thumb__image" data-slide = "${i}"/>
+      </div>`
+    );
+    ev.addEventListener("click", (e) => {
+      // console.log(e.target);
+      // console.log(overlay);
+      overlay.classList.add("overlay--display");
+    });
   });
 };
 
@@ -183,3 +201,13 @@ const createCarts = function () {
     </div>`
   );
 };
+
+menuOpen.addEventListener("click", () => {
+  overlay.classList.add("overlay--display");
+  navBar.classList.add("nav--open");
+});
+
+menuClose.addEventListener("click", () => {
+  overlay.classList.remove("overlay--display");
+  navBar.classList.remove("nav--open");
+});

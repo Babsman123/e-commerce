@@ -29,7 +29,8 @@ body {
   align-self: stretch; }
   @media only screen and (max-width: 37.5em) {
     .nav {
-      display: none;
+      transition: transform 1s;
+      transform: translateX(-100%);
       position: fixed;
       width: 75%;
       min-height: 100vh;
@@ -78,6 +79,9 @@ body {
         position: absolute;
         top: 5%; } }
 
+.nav--open {
+  transform: translateX(0); }
+
 .user-nav {
   display: flex;
   align-items: center; }
@@ -122,8 +126,9 @@ body {
   @media only screen and (max-width: 37.5em) {
     .cart--list {
       z-index: 1000;
-      width: 60%;
-      right: 1rem; } }
+      width: 95%;
+      right: 0.7rem;
+      top: 7.5rem; } }
   .cart--list .heading--3 {
     font-size: 1.8rem;
     font-weight: bolder;
@@ -158,8 +163,7 @@ body {
     @media only screen and (max-width: 37.5em) {
       .sneaker__image .slider {
         width: 100%;
-        height: 35rem;
-        border: 1px solid red; } }
+        height: 35rem; } }
   .sneaker__image .slide {
     position: absolute;
     top: 1.5rem;
@@ -203,34 +207,35 @@ body {
   .sneaker__image .slider__btn--right {
     right: 10%;
     transform: translate(50%, -50%); }
-  .sneaker__image .slide-thumb {
-    display: flex;
-    justify-content: center;
+
+.slide-thumb {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.2s;
+  bottom: 0; }
+  @media only screen and (max-width: 37.5em) {
+    .slide-thumb {
+      display: none; } }
+  .slide-thumb .product-list {
+    height: 100%;
     width: 100%;
-    height: 20%;
-    position: absolute;
-    backface-visibility: hidden;
-    transition: transform 0.2s;
-    bottom: 0; }
-    @media only screen and (max-width: 37.5em) {
-      .sneaker__image .slide-thumb {
-        display: none; } }
-    .sneaker__image .slide-thumb .product-list {
-      height: 100%;
-      width: 100%;
-      cursor: pointer;
-      position: relative; }
-      .sneaker__image .slide-thumb .product-list:not(:last-child) {
-        margin-right: 2rem; }
-    .sneaker__image .slide-thumb .slide-thumb__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      transition: all 0.2s;
-      position: relative; }
-      .sneaker__image .slide-thumb .slide-thumb__image:hover {
-        opacity: 0.6; }
+    cursor: pointer;
+    position: relative; }
+    .slide-thumb .product-list:not(:last-child) {
+      margin-right: 2rem; }
+  .slide-thumb .slide-thumb__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    position: relative; }
+    .slide-thumb .slide-thumb__image:hover {
+      opacity: 0.6; }
 
 /* ACTIVE PRODUCT AND IMAGE */
 .active-product {
@@ -327,17 +332,22 @@ body {
     .sneaker__content .sneaker__cart-btn {
       border-radius: 0.5rem;
       background-color: #ff7d1a; }
+    .sneaker__content .sneaker__cart .sneaker__cart-btn {
+      width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2rem; }
+      @media only screen and (max-width: 37.5em) {
+        .sneaker__content .sneaker__cart .sneaker__cart-btn {
+          width: 100%; } }
     .sneaker__content .sneaker__cart .cart-btn {
       display: flex;
       align-items: center;
       text-decoration: none;
       font-size: 1.6rem;
       font-weight: 800;
-      padding: 1.5rem 7rem;
       color: #1d2025; }
-      @media only screen and (max-width: 37.5em) {
-        .sneaker__content .sneaker__cart .cart-btn {
-          padding: 0rem 0rem; } }
       .sneaker__content .sneaker__cart .cart-btn__img {
         -webkit-mask: url("../images/icon-cart.svg") no-repeat center/contain;
         mask: url("../images/icon-cart.svg") no-repeat center/contain;
@@ -410,14 +420,18 @@ body {
 .overlay {
   display: none;
   width: 100%;
-  height: 100%;
+  height: 120%;
   position: absolute;
   top: -10%;
   background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px); }
+  backdrop-filter: blur(5px);
+  z-index: 10; }
 
 .overlay--display {
   display: block; }
+  @media only screen and (max-width: 37.5em) {
+    .overlay--display {
+      display: block; } }
 
 .container {
   max-width: 120rem;

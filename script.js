@@ -1,10 +1,12 @@
 "use strict";
 
 const slides = document.querySelectorAll(".slide");
+// const thumbnails = document.querySelectorAll(".thumb");
 const btnLeft = document.querySelector(".slider__btn--left");
 const btnRight = document.querySelector(".slider__btn--right");
 const imageThumb = document.querySelector(".slide-thumb");
-const imageOverlay = document.querySelector(".slide-overlay");
+
+const bodyContainer = document.querySelector(".body");
 
 const increaseCartNum = document.querySelector(".icon-plus");
 const decreaseCartNum = document.querySelector(".icon-minus");
@@ -18,16 +20,20 @@ const addCartButton = document.querySelector(".cart-btn");
 const navBar = document.querySelector(".nav");
 const menuOpen = document.querySelector(".menu-open");
 const menuClose = document.querySelector(".menu-close");
-const overlay = document.querySelector(".overlay");
 
 /*IMAGE SLIDER STARTS HERE */
 let curSlide = 0;
 const maxSlide = slides.length;
+let images = [];
 
 const gotoSlide = function (slide) {
   slides.forEach((s, i) => {
     s.style.transform = `translateX(${100 * (i - slide)}%)`;
   });
+};
+
+const openOverlay = function () {
+  bodyContainer.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`);
 };
 
 const createDots = function () {
@@ -40,18 +46,22 @@ const createDots = function () {
          }-thumbnail.jpg" class = "slide-thumb__image" data-slide = "${i}"/>
       </div>`
     );
-    imageOverlay.insertAdjacentHTML(
-      "beforeend",
-      `<div class= "product-list" data-slide = "${i}">
-         <img src = "./images/image-product-${
-           i + 1
-         }-thumbnail.jpg" class = "slide-thumb__image" data-slide = "${i}"/>
-      </div>`
-    );
-    ev.addEventListener("click", (e) => {
-      // console.log(e.target);
-      // console.log(overlay);
-      overlay.classList.add("overlay--display");
+    // console.log(thumbnails);
+    ev.addEventListener("click", () => {
+      const thumbnails = document.querySelectorAll(".slide-thumb__image");
+      openOverlay();
+      const overlay = document.querySelector(".overlay");
+      const imageSrcArray = Array.from(thumbnails).map((img) => img.src);
+      console.log(imageSrcArray);
+      imageSrcArray.forEach((src, i) => {
+        const imageHtml = `<div class= "product-list" data-slide = "${i}">
+         <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
+      </div>`;
+        overlay.insertAdjacentHTML("beforeend", imageHtml);
+        console.log(overlay);
+      });
+      activeImage(i);
+      console.log(i);
     });
   });
 };
@@ -203,11 +213,35 @@ const createCarts = function () {
 };
 
 menuOpen.addEventListener("click", () => {
-  overlay.classList.add("overlay--display");
+  openOverlay();
   navBar.classList.add("nav--open");
 });
 
 menuClose.addEventListener("click", () => {
-  overlay.classList.remove("overlay--display");
-  navBar.classList.remove("nav--open");
+  const overlay = document.querySelector(".overlay");
+  if (overlay) {
+    overlay.remove();
+    navBar.classList.remove("nav--open");
+  }
 });
+
+// thumbnails.forEach((thumb, index) => {
+//   images.push(thumb.src);
+//   thumb.addEventListener("click", () => {
+//     openOverlay();
+//     curSlide = index;
+//     const overlay = document.querySelector(".overlay");
+//     overlay.insertAdjacentHTML(
+//       "beforeend",
+//       `<div><img class="lightbox-img" src=""></div>`
+//     );
+//     console.log(overlay);
+//     showLightbox(images[curSlide]);
+//   });
+// });
+
+const showLightbox = function (src) {
+  const lightboxImg = document.querySelector(".lightbox-img");
+  lightboxImg.src = src;
+  createDots();
+};

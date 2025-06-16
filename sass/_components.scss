@@ -154,11 +154,11 @@
   background-color: $color-white;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
   width: 25%;
-  min-height: 30%;
+  // min-height: 90%;
   top: 6rem;
   right: 0;
-  //   padding: 1.5rem 2rem;
   border-radius: 0.5rem;
+  // border: 1px solid green;
 
   @media only screen and (max-width: $bp-small) {
     z-index: 1000;
@@ -182,7 +182,7 @@
     font-weight: 900;
     color: $color-dark-gray-blue;
     text-align: center;
-    padding: 1.5rem 0;
+    padding: 5rem 0;
 
     @media only screen and (max-width: $bp-small) {
       padding: 3rem 0;
@@ -447,19 +447,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem 2rem;
+      cursor: pointer;
 
       @media only screen and (max-width: $bp-small) {
         width: 100%;
       }
     }
     .cart-btn {
+      align-self: stretch;
+
       display: flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
       font-size: 1.6rem;
       font-weight: 800;
-      // padding: 1.5rem 7rem;
+      width: 100%;
+      padding: 2rem 2rem;
       color: $color-dark-blue;
 
       &__img {
@@ -551,7 +555,7 @@
 
 /* OVERLAY BACKGROUND */
 .overlay {
-  display: none;
+  // display: none;
   width: 100%;
   height: 120%;
   position: absolute;
@@ -563,10 +567,10 @@
   // border: 1px solid green;
 }
 
-.overlay--display {
-  display: block;
+// .overlay--display {
+//   display: block;
 
-  @media only screen and (max-width: $bp-small) {
-    display: block;
-  }
-}
+//   @media only screen and (max-width: $bp-small) {
+//     display: block;
+//   }
+// }

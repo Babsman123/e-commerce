@@ -1,7 +1,7 @@
 "use strict";
 
 const slides = document.querySelectorAll(".slide");
-// const thumbnails = document.querySelectorAll(".thumb");
+const thumbnails = document.querySelectorAll(".thumb");
 const btnLeft = document.querySelector(".slider__btn--left");
 const btnRight = document.querySelector(".slider__btn--right");
 const imageThumb = document.querySelector(".slide-thumb");
@@ -48,19 +48,31 @@ const createDots = function () {
     );
     // console.log(thumbnails);
     ev.addEventListener("click", () => {
-      const thumbnails = document.querySelectorAll(".slide-thumb__image");
-      openOverlay();
-      const overlay = document.querySelector(".overlay");
-      const imageSrcArray = Array.from(thumbnails).map((img) => img.src);
-      console.log(imageSrcArray);
-      imageSrcArray.forEach((src, i) => {
-        const imageHtml = `<div class= "product-list" data-slide = "${i}">
-         <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
-      </div>`;
-        overlay.insertAdjacentHTML("beforeend", imageHtml);
-        console.log(overlay);
-      });
-      activeImage(i);
+      // openOverlay();
+      // curSlide = i;
+
+      // const overlaySlide = Array.from(slideThumb).map((img) => img.src);
+      // const overlay = document.querySelector(".overlay");
+      // console.log(overlaySlide);
+
+      // overlaySlide.forEach((src, i) => {
+      //   const imageHtml = `<div class= "product-list" data-slide = "${i}">
+      //    <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
+      // </div>`;
+      //   overlay.insertAdjacentHTML("afterbegin", imageHtml);
+      // });
+
+      // const overlayThumb = document.querySelectorAll(".slide-thumb__image");
+      // const imageSrcArray = Array.from(thumbnails).map((img) => img.src);
+      // console.log(imageSrcArray);
+      // imageSrcArray.forEach((src, i) => {
+      //   const imageHtml = `<div class= "product-list" data-slide = "${i}">
+      //    <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
+      // </div>`;
+      //   overlay.insertAdjacentHTML("beforeend", imageHtml);
+      //   // console.log(overlay);
+      // });
+      // activeImage(i);
       console.log(i);
     });
   });
@@ -225,20 +237,34 @@ menuClose.addEventListener("click", () => {
   }
 });
 
-// thumbnails.forEach((thumb, index) => {
-//   images.push(thumb.src);
-//   thumb.addEventListener("click", () => {
-//     openOverlay();
-//     curSlide = index;
-//     const overlay = document.querySelector(".overlay");
-//     overlay.insertAdjacentHTML(
-//       "beforeend",
-//       `<div><img class="lightbox-img" src=""></div>`
-//     );
-//     console.log(overlay);
-//     showLightbox(images[curSlide]);
-//   });
-// });
+thumbnails.forEach((thumb, index) => {
+  images.push(thumb.src);
+  const overlayThumb = document.querySelectorAll(".slide-thumb__image");
+
+  thumb.addEventListener("click", () => {
+    openOverlay();
+    curSlide = index;
+    const overlay = document.querySelector(".overlay");
+    overlay.insertAdjacentHTML(
+      "beforeend",
+      `<div><img class="lightbox-img" src=""></div>`
+    );
+    console.log(overlay);
+    showLightbox(images[curSlide]);
+
+    const imageSrcArray = Array.from(overlayThumb).map((img) => img.src);
+    console.log(imageSrcArray);
+
+    imageSrcArray.forEach((src, i) => {
+      const imageHtml = `<div class= "product-list" data-slide = "${i}">
+         <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
+      </div>`;
+      overlay.insertAdjacentHTML("beforeend", imageHtml);
+      // console.log(overlay);
+    });
+    activeImage(index);
+  });
+});
 
 const showLightbox = function (src) {
   const lightboxImg = document.querySelector(".lightbox-img");

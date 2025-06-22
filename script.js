@@ -50,18 +50,15 @@ const createDots = function () {
     ev.addEventListener("click", () => {
       // openOverlay();
       // curSlide = i;
-
       // const overlaySlide = Array.from(slideThumb).map((img) => img.src);
       // const overlay = document.querySelector(".overlay");
       // console.log(overlaySlide);
-
       // overlaySlide.forEach((src, i) => {
       //   const imageHtml = `<div class= "product-list" data-slide = "${i}">
       //    <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
       // </div>`;
       //   overlay.insertAdjacentHTML("afterbegin", imageHtml);
       // });
-
       // const overlayThumb = document.querySelectorAll(".slide-thumb__image");
       // const imageSrcArray = Array.from(thumbnails).map((img) => img.src);
       // console.log(imageSrcArray);
@@ -73,7 +70,7 @@ const createDots = function () {
       //   // console.log(overlay);
       // });
       // activeImage(i);
-      console.log(i);
+      // console.log(i);
     });
   });
 };
@@ -243,31 +240,67 @@ thumbnails.forEach((thumb, index) => {
 
   thumb.addEventListener("click", () => {
     openOverlay();
-    curSlide = index;
+    index = curSlide;
     const overlay = document.querySelector(".overlay");
     overlay.insertAdjacentHTML(
       "beforeend",
-      `<div><img class="lightbox-img" src=""></div>`
+      `<div class="lightbox-slider">
+            <img class="lightbox-img" src="">
+             <button class="slider__btn slider__btn--left">
+              <img src="./images/icon-previous.svg" alt="icon-previous" />
+            </button>
+            <button class="slider__btn slider__btn--right">
+              <img src="./images/icon-next.svg" alt="icon-next" />
+            </button>
+            <div class="lightbox-close">
+            <img class="" src="./images/icon-close.svg"></div>
+      </div>
+      <div class="thumbnail--img"></div>`
     );
-    console.log(overlay);
+    const lightboxImageLength = images.length;
     showLightbox(images[curSlide]);
 
+    const lightboxRight = document.querySelector(".slider__btn--right");
+    const lightboxLeft = document.querySelector(".slider__btn--left");
+
+    lightboxRight.addEventListener("click", () => {
+      if (curSlide === lightboxImageLength - 1) {
+        curSlide = 0;
+      } else {
+        curSlide++;
+      }
+      showLightbox(images[curSlide]);
+      activeImage(curSlide);
+    });
+
+    lightboxLeft.addEventListener("click", () => {
+      if (curSlide === 0) {
+        curSlide = 0;
+      } else {
+        curSlide--;
+      }
+      showLightbox(images[curSlide]);
+      activeImage(curSlide);
+    });
+
     const imageSrcArray = Array.from(overlayThumb).map((img) => img.src);
-    console.log(imageSrcArray);
+    const thumbnailImg = document.querySelector(".thumbnail--img");
+    console.log(thumbnailImg);
 
     imageSrcArray.forEach((src, i) => {
       const imageHtml = `<div class= "product-list" data-slide = "${i}">
          <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
       </div>`;
-      overlay.insertAdjacentHTML("beforeend", imageHtml);
+      thumbnailImg.insertAdjacentHTML("beforeend", imageHtml);
       // console.log(overlay);
     });
-    activeImage(index);
+    activeImage(curSlide);
   });
 });
 
 const showLightbox = function (src) {
   const lightboxImg = document.querySelector(".lightbox-img");
   lightboxImg.src = src;
-  createDots();
 };
+
+const nextLightbox = function () {};

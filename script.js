@@ -37,7 +37,7 @@ const openOverlay = function () {
 };
 
 const createDots = function () {
-  slides.forEach(function (ev, i) {
+  slides.forEach(function (_, i) {
     imageThumb.insertAdjacentHTML(
       "beforeend",
       `<div class= "product-list" data-slide = "${i}">
@@ -46,32 +46,6 @@ const createDots = function () {
          }-thumbnail.jpg" class = "slide-thumb__image" data-slide = "${i}"/>
       </div>`
     );
-    // console.log(thumbnails);
-    ev.addEventListener("click", () => {
-      // openOverlay();
-      // curSlide = i;
-      // const overlaySlide = Array.from(slideThumb).map((img) => img.src);
-      // const overlay = document.querySelector(".overlay");
-      // console.log(overlaySlide);
-      // overlaySlide.forEach((src, i) => {
-      //   const imageHtml = `<div class= "product-list" data-slide = "${i}">
-      //    <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
-      // </div>`;
-      //   overlay.insertAdjacentHTML("afterbegin", imageHtml);
-      // });
-      // const overlayThumb = document.querySelectorAll(".slide-thumb__image");
-      // const imageSrcArray = Array.from(thumbnails).map((img) => img.src);
-      // console.log(imageSrcArray);
-      // imageSrcArray.forEach((src, i) => {
-      //   const imageHtml = `<div class= "product-list" data-slide = "${i}">
-      //    <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
-      // </div>`;
-      //   overlay.insertAdjacentHTML("beforeend", imageHtml);
-      //   // console.log(overlay);
-      // });
-      // activeImage(i);
-      // console.log(i);
-    });
   });
 };
 
@@ -119,6 +93,7 @@ btnLeft.addEventListener("click", () => {
 imageThumb.addEventListener("click", function (e) {
   if (e.target.classList.contains("slide-thumb__image")) {
     const { slide } = e.target.dataset;
+    console.log(slide);
     gotoSlide(slide);
     activeImage(slide);
   }
@@ -234,13 +209,15 @@ menuClose.addEventListener("click", () => {
   }
 });
 
+let lightboxSlide = 0;
+
 thumbnails.forEach((thumb, index) => {
   images.push(thumb.src);
   const overlayThumb = document.querySelectorAll(".slide-thumb__image");
 
   thumb.addEventListener("click", () => {
+    curSlide = index;
     openOverlay();
-    index = curSlide;
     const overlay = document.querySelector(".overlay");
     overlay.insertAdjacentHTML(
       "beforeend",
@@ -253,39 +230,20 @@ thumbnails.forEach((thumb, index) => {
               <img src="./images/icon-next.svg" alt="icon-next" />
             </button>
             <div class="lightbox-close">
-            <img class="" src="./images/icon-close.svg"></div>
-      </div>
+              
+            </div>
       <div class="thumbnail--img"></div>`
     );
     const lightboxImageLength = images.length;
+    const lightboxslider = document.querySelector(".lightbox-slider");
     showLightbox(images[curSlide]);
 
     const lightboxRight = document.querySelector(".slider__btn--right");
     const lightboxLeft = document.querySelector(".slider__btn--left");
-
-    lightboxRight.addEventListener("click", () => {
-      if (curSlide === lightboxImageLength - 1) {
-        curSlide = 0;
-      } else {
-        curSlide++;
-      }
-      showLightbox(images[curSlide]);
-      activeImage(curSlide);
-    });
-
-    lightboxLeft.addEventListener("click", () => {
-      if (curSlide === 0) {
-        curSlide = 0;
-      } else {
-        curSlide--;
-      }
-      showLightbox(images[curSlide]);
-      activeImage(curSlide);
-    });
+    const lightboxClose = document.querySelector(".lightbox-close");
 
     const imageSrcArray = Array.from(overlayThumb).map((img) => img.src);
     const thumbnailImg = document.querySelector(".thumbnail--img");
-    console.log(thumbnailImg);
 
     imageSrcArray.forEach((src, i) => {
       const imageHtml = `<div class= "product-list" data-slide = "${i}">
@@ -294,7 +252,33 @@ thumbnails.forEach((thumb, index) => {
       thumbnailImg.insertAdjacentHTML("beforeend", imageHtml);
       // console.log(overlay);
     });
-    activeImage(curSlide);
+
+    // lightboxRight.addEventListener("click", () => {
+    //   if (curSlide === lightboxImageLength - 1) {
+    //     curSlide = 0;
+    //   } else {
+    //     curSlide++;
+    //   }
+    //   showLightbox(images[curSlide]);
+    //   activeLightBoxImage(curSlide);
+    // });
+
+    // lightboxLeft.addEventListener("click", () => {
+    //   if (curSlide === 0) {
+    //     curSlide = 0;
+    //   } else {
+    //     curSlide--;
+    //   }
+    //   showLightbox(images[curSlide]);
+    //   activeLightBoxImage(curSlide);
+    // });
+
+    lightboxClose.addEventListener("click", () => {
+      console.log("hi there");
+      curSlide = 0;
+      console.log(curSlide);
+      overlay.remove();
+    });
   });
 });
 

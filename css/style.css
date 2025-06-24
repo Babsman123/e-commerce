@@ -429,13 +429,12 @@ body {
   top: -10%;
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(5px);
-  z-index: 10; }
+  z-index: 100; }
 
 .lightbox-slider {
-  width: 50%;
+  width: 35%;
   height: 50%;
-  border: 2px solid green;
-  margin: 10rem auto 0 auto;
+  margin: 15rem auto 0 auto;
   position: relative; }
   @media only screen and (max-width: 37.5em) {
     .lightbox-slider {
@@ -444,8 +443,21 @@ body {
   .lightbox-slider .lightbox-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 2rem;
     transition: transform 2s; }
+  .lightbox-slider .lightbox-close {
+    -webkit-mask: url("../images/icon-close.svg") no-repeat center/contain;
+    mask: url("../images/icon-close.svg") no-repeat center/contain;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: white;
+    position: absolute;
+    top: -10%;
+    right: 1%;
+    cursor: pointer; }
+    .lightbox-slider .lightbox-close:hover {
+      background-color: #ff7d1a; }
   .lightbox-slider .slider__btn {
     position: absolute;
     top: 50%;
@@ -460,23 +472,25 @@ body {
     font-size: 3.25rem;
     cursor: pointer; }
   .lightbox-slider .slider__btn--left {
-    left: 17%;
+    left: -1%;
     transform: translate(-50%, -50%); }
   .lightbox-slider .slider__btn--right {
-    right: 17%;
+    right: -1%;
     transform: translate(50%, -50%); }
 
 .overlay .thumbnail--img {
   display: flex;
-  width: 25%;
+  width: 50%;
   height: 10vh;
-  margin: 0 auto;
+  margin: 2.5rem auto 0 auto;
   align-items: center;
   justify-content: center; }
 
 .overlay .product-list {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem; }
   .overlay .product-list:not(:last-child) {
     margin-right: 1rem; }
   .overlay .product-list .slide-thumb__image {
@@ -486,8 +500,7 @@ body {
     border-radius: 0.5rem;
     transition: all 0.2s; }
     .overlay .product-list .slide-thumb__image:hover {
-      opacity: 0.4;
-      background-color: #fff; }
+      opacity: 0.4; }
 
 .container {
   max-width: 120rem;

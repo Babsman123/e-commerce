@@ -1,7 +1,8 @@
 /* COLOR VARIABLES */
 /* RESPONSIVE BREAKPOINT */
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  font-family: "Kumbh Sans", sans-serif; }
 
 *,
 *::before,
@@ -252,8 +253,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  border: 2px solid green; }
+  justify-content: center; }
   @media only screen and (max-width: 37.5em) {
     .sneaker__content {
       margin-top: 3rem;
@@ -422,6 +422,19 @@ body {
       color: black; }
 
 /* OVERLAY BACKGROUND */
+.overlay--menu {
+  display: none;
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  top: -10%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 100; }
+  @media only screen and (max-width: 37.5em) {
+    .overlay--menu {
+      display: block; } }
+
 .overlay {
   width: 100%;
   height: 120%;
@@ -486,20 +499,20 @@ body {
   align-items: center;
   justify-content: center; }
 
-.overlay .product-list {
+.overlay .product-lightbox {
   width: 100%;
   height: 100%;
   background-color: #fff;
   border-radius: 0.5rem; }
-  .overlay .product-list:not(:last-child) {
+  .overlay .product-lightbox:not(:last-child) {
     margin-right: 1rem; }
-  .overlay .product-list .slide-thumb__image {
+  .overlay .product-lightbox .lightbox__thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
     transition: all 0.2s; }
-    .overlay .product-list .slide-thumb__image:hover {
+    .overlay .product-lightbox .lightbox__thumb:hover {
       opacity: 0.4; }
 
 .container {

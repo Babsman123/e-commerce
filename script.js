@@ -35,6 +35,12 @@ const gotoSlide = function (slide) {
 const openOverlay = function () {
   bodyContainer.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`);
 };
+const menuOverlay = function () {
+  bodyContainer.insertAdjacentHTML(
+    "afterbegin",
+    `<div class="overlay--menu"></div>`
+  );
+};
 
 const createDots = function () {
   slides.forEach(function (_, i) {
@@ -90,6 +96,7 @@ btnLeft.addEventListener("click", () => {
   gotoSlide(curSlide);
   activeImage(curSlide);
 });
+
 imageThumb.addEventListener("click", function (e) {
   if (e.target.classList.contains("slide-thumb__image")) {
     const { slide } = e.target.dataset;
@@ -197,27 +204,25 @@ const createCarts = function () {
 };
 
 menuOpen.addEventListener("click", () => {
-  openOverlay();
+  menuOverlay();
   navBar.classList.add("nav--open");
 });
 
 menuClose.addEventListener("click", () => {
-  const overlay = document.querySelector(".overlay");
+  const overlay = document.querySelector(".overlay--menu");
   if (overlay) {
     overlay.remove();
     navBar.classList.remove("nav--open");
   }
 });
 
-let lightboxSlide = 0;
-
 thumbnails.forEach((thumb, index) => {
   images.push(thumb.src);
   const overlayThumb = document.querySelectorAll(".slide-thumb__image");
 
   thumb.addEventListener("click", () => {
-    curSlide = index;
     openOverlay();
+    curSlide = index;
     const overlay = document.querySelector(".overlay");
     overlay.insertAdjacentHTML(
       "beforeend",
@@ -234,8 +239,6 @@ thumbnails.forEach((thumb, index) => {
             </div>
       <div class="thumbnail--img"></div>`
     );
-    const lightboxImageLength = images.length;
-    const lightboxslider = document.querySelector(".lightbox-slider");
     showLightbox(images[curSlide]);
 
     const lightboxRight = document.querySelector(".slider__btn--right");
@@ -246,39 +249,16 @@ thumbnails.forEach((thumb, index) => {
     const thumbnailImg = document.querySelector(".thumbnail--img");
 
     imageSrcArray.forEach((src, i) => {
-      const imageHtml = `<div class= "product-list" data-slide = "${i}">
-         <img src = "${src}" class = "slide-thumb__image" data-slide = "${i}"/>
+      const imageHtml = `<div class= "product-lightbox" data-slide = "${i}">
+         <img src = "${src}" class = "lightbox__thumb" data-slide = "${i}"/>
       </div>`;
       thumbnailImg.insertAdjacentHTML("beforeend", imageHtml);
-      // console.log(overlay);
     });
 
-    // lightboxRight.addEventListener("click", () => {
-    //   if (curSlide === lightboxImageLength - 1) {
-    //     curSlide = 0;
-    //   } else {
-    //     curSlide++;
-    //   }
-    //   showLightbox(images[curSlide]);
-    //   activeLightBoxImage(curSlide);
-    // });
-
-    // lightboxLeft.addEventListener("click", () => {
-    //   if (curSlide === 0) {
-    //     curSlide = 0;
-    //   } else {
-    //     curSlide--;
-    //   }
-    //   showLightbox(images[curSlide]);
-    //   activeLightBoxImage(curSlide);
-    // });
-
-    lightboxClose.addEventListener("click", () => {
-      console.log("hi there");
-      curSlide = 0;
-      console.log(curSlide);
-      overlay.remove();
-    });
+    lightboxRight.addEventListener("click", nextLightbox);
+    lightboxLeft.addEventListener("click", prevLightbox);
+    lightboxClose.addEventListener("click", closeLightbox);
+    activeLightboxImage(curSlide);
   });
 });
 
@@ -287,4 +267,48 @@ const showLightbox = function (src) {
   lightboxImg.src = src;
 };
 
-const nextLightbox = function () {};
+const nextLightbox = function () {
+  const lightboxImageLength = images.length;
+  if (curSlide === lightboxImageLength - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  showLightbox(images[curSlide]);
+  activeLightboxImage(curSlide);
+};
+
+const prevLightbox = function () {
+  if (curSlide === 0) {
+    curSlide = 0;
+  } else {
+    curSlide--;
+  }
+  showLightbox(images[curSlide]);
+  activeLightboxImage(curSlide);
+};
+
+const closeLightbox = function () {
+  const overlay = document.querySelector(".overlay");
+  curSlide = 0;
+  overlay.remove();
+  activeImage(curSlide);
+};
+
+const activeLightboxImage = function (slide) {
+  document
+    .querySelectorAll(".product-lightbox")
+    .forEach((product) => product.classList.remove("active-product"));
+
+  document
+    .querySelectorAll(".lightbox__thumb")
+    .forEach((image) => image.classList.remove("active-image"));
+
+  document
+    .querySelector(`.product-lightbox[data-slide = "${slide}"]`)
+    .classList.add("active-product");
+
+  document
+    .querySelector(`.lightbox__thumb[data-slide = "${slide}"]`)
+    .classList.add("active-image");
+};

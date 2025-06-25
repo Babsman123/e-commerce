@@ -332,7 +332,11 @@ body {
       font-size: 1.4rem; }
     .sneaker__content .sneaker__cart-btn {
       border-radius: 0.5rem;
-      background-color: #ff7d1a; }
+      background-color: #ff7d1a;
+      box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+      transition: all 0.2s; }
+      .sneaker__content .sneaker__cart-btn:hover {
+        opacity: 0.8; }
     .sneaker__content .sneaker__cart .sneaker__cart-btn {
       width: 45%;
       display: flex;

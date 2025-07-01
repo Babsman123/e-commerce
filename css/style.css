@@ -98,10 +98,9 @@ body {
 .user--section {
   width: 100%;
   min-height: 20vh;
-  padding: 1.5rem 3rem; }
-  .user--section__info {
-    display: flex;
-    flex-direction: column; }
+  padding: 1.5rem 3rem .user--section __info;
+    padding-display: flex;
+    padding-flex-direction: column; }
   .user--section .user-img {
     display: flex;
     align-items: center;
@@ -236,6 +235,9 @@ body {
     font-size: 1.5rem;
     color: #fff;
     margin-bottom: 1.5rem; }
+    .input--form .btn a {
+      color: #fff;
+      text-decoration: none; }
     @media only screen and (max-width: 37.5em) {
       .input--form .btn {
         width: 70%; } }
@@ -250,7 +252,8 @@ body {
 
 .section--plan {
   margin-top: 1rem;
-  padding: 2rem 3rem; }
+  padding: 2rem 3rem;
+  font-family: "Open Sans", sans-serif; }
   .section--plan .plan-text {
     display: inline-block;
     background-color: #70a590;
@@ -339,7 +342,6 @@ body {
   .section--claim .online-claim {
     display: flex;
     flex-direction: column;
-    border: 2px solid green;
     width: 70%;
     margin: 3rem auto; }
     @media only screen and (max-width: 37.5em) {

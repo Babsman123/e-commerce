@@ -2,7 +2,11 @@
   //   border: 1px solid green;
   width: 100%;
   min-height: 20vh;
-  padding: 1.5rem 3rem &__info {
+  font-family: "Open Sans", sans-serif;
+
+  padding: 1.5rem 3rem;
+
+  &__info {
     display: flex;
     flex-direction: column;
   }

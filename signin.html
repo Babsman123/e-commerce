@@ -13,14 +13,25 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- <img src="./images/hustleguard_logo_transparent.png" alt="" /> -->
     <div class="login-form--container">
-      <img src="./images/hustleguard_logo_transparent.png" alt="hustleguard" />
+      <img src="./images/hustleguard_logo_transparent.png" alt="" />
       <form action="#" class="input--form">
         <input
           type="text"
-          placeholder="Username"
-          class="login-details username"
+          placeholder="Full Name"
+          class="login-details fullname"
+          required
+        />
+        <input
+          type="email"
+          placeholder="example@email.com"
+          class="login-details email"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Phone No"
+          class="login-details phone-num"
           required
         />
         <input
@@ -29,11 +40,17 @@
           class="login-details password"
           required
         />
-        <button class="btn btn--login"><a href="home.html">Log In</a></button>
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          class="login-details password"
+          required
+        />
+        <button class="btn btn--login">Log In</button>
       </form>
       <p class="form-text">
-        Don't have an account?
-        <span><a href="signin.html" class="account">Sign Up</a></span>
+        Already an account?
+        <span><a href="index.html" class="account">Log In</a></span>
       </p>
     </div>
   </body>

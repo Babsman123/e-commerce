@@ -1,0 +1,37 @@
+$primary-bg-color: #70a590;
+$btn-bg: rgb(193, 191, 49);
+
+$bp-largest: 75em; //1200px/16px (1200px)
+$bp-large: 62.5em; //1000px/16px (1000px)
+$bp-mobile: 37.5em;
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  line-height: 1.5;
+  position: relative;
+}
+
+.login-form--container {
+  //   border: 2px solid green;
+  background-color: $primary-bg-color;
+  width: 100%;
+  min-height: 100vh;
+  //   margin: 10rem auto;
+
+  @media only screen and (max-width: $bp-mobile) {
+    width: 100%;
+    // margin: 10rem auto;
+  }
+}

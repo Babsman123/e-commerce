@@ -1,10 +1,10 @@
 {
-  "name": "ecommerce-product-page-main",
+  "name": "husleguard",
   "version": "1.0.0",
-  "description": "Ecommerce website",
+  "description": "Proto",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "compile:sass": "node-sass scss/main.scss css/style.css -w"
   },
   "author": "Tunde Adelani",
   "license": "ISC",

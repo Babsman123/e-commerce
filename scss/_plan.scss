@@ -43,6 +43,12 @@
     padding: 2.5rem 1.5rem;
     border-radius: 1rem;
     background-color: $primary-bg-color;
+    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+    transition: all 1s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     &:not(:last-child) {
       margin-right: 3rem;

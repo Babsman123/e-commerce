@@ -17,6 +17,7 @@
       font-size: 1.2rem;
       text-align: center;
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+      animation: moveInBottom 2s ease-out;
 
       &:not(:last-child) {
         margin-right: 4rem;
@@ -68,6 +69,7 @@
       font: 1.2rem;
       font-weight: bold;
       cursor: pointer;
+      animation: moveInTop 2s ease-out;
     }
   }
 }

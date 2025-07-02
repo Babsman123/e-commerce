@@ -366,7 +366,7 @@ body {
     .section--plan ul li {
       padding: 1rem;
       font-weight: 500;
-      list-style-type: cnone;
+      list-style-type: none;
       color: #fff; }
   .section--plan .hustle-price {
     font-size: 1.5rem;
@@ -400,7 +400,8 @@ body {
       font-weight: bold;
       font-size: 1.2rem;
       text-align: center;
-      box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5); }
+      box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+      animation: moveInBottom 2s ease-out; }
       .section--claim .claim-type a:not(:last-child) {
         margin-right: 4rem; }
         @media only screen and (max-width: 37.5em) {
@@ -437,7 +438,8 @@ body {
       color: #fff;
       font: 1.2rem;
       font-weight: bold;
-      cursor: pointer; }
+      cursor: pointer;
+      animation: moveInTop 2s ease-out; }
 
 .location-page {
   width: 100%;
@@ -459,7 +461,8 @@ body {
   margin-top: 2rem;
   border-radius: 2rem;
   margin-left: 4rem;
-  width: 20rem; }
+  width: 20rem;
+  animation: moveInBottom 2s ease-out; }
   @media only screen and (max-width: 37.5em) {
     .btn-check {
       margin-right: 0;

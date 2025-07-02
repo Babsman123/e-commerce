@@ -21,6 +21,7 @@
   border-radius: 2rem;
   margin-left: 4rem;
   width: 20rem;
+  animation: moveInBottom 2s ease-out;
 
   @media only screen and (max-width: $bp-mobile) {
     margin-right: 0;

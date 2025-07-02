@@ -12,6 +12,7 @@
     font-size: 1.2rem;
     color: #fff;
     margin-bottom: 1.2rem;
+    animation: moveInTop 2s ease-out;
   }
 
   &__header {
@@ -53,9 +54,17 @@
     }
   }
 
-  //   .hustleguard-basic {
-  //     background-color: $primary-bg-color;
-  //   }
+  .hustleguard-basic {
+    animation: moveInLeft 2s ease-out;
+  }
+
+  .hustleguard-plus {
+    animation: moveInBottom 2s ease-out;
+  }
+
+  .hustleguard-max {
+    animation: moveInRight 2s ease-out;
+  }
 
   .heading--3 {
     margin-bottom: 1rem;
@@ -91,8 +100,10 @@
     text-decoration: none;
     background-color: $btn-bg;
     color: #fff;
-    padding: 1rem 2rem;
+    padding: 1.2rem 3rem;
     border-radius: 2rem;
     margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
   }
 }

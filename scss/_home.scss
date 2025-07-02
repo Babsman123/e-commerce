@@ -37,6 +37,7 @@
     display: flex;
     padding: 1rem 2rem;
     margin-top: 1.5rem;
+    animation: moveInLeft 2s ease-out;
 
     .user-policy--img {
       width: 4rem;
@@ -81,6 +82,7 @@
     margin-top: 3.5rem;
     display: flex;
     flex-direction: column;
+    animation: moveInRight 2s ease-out;
 
     .coverage-text {
       margin-bottom: 2rem;
@@ -126,11 +128,13 @@
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
       margin-bottom: 2rem;
       color: rgb(237, 228, 217);
+      animation: moveInBottom 1s ease-out;
     }
     .home-claim {
       color: $primary-bg-color;
       background-color: rgb(237, 228, 217);
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
+      animation: moveInBottom 2s ease-out;
     }
   }
 }

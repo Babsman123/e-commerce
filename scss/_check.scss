@@ -1,12 +1,15 @@
 .location-page {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   background-color: #e1dddd;
   margin-top: 0;
+
+  @media only screen and (max-width: $bp-mobile) {
+    height: 55vh;
+  }
 }
 
 .btn-check {
-  // display: inline-block;
   padding: 2rem 2rem;
   background-color: $btn-bg;
   text-align: center;

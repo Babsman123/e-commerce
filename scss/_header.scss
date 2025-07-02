@@ -51,7 +51,6 @@
     &__links {
       display: flex;
       padding: 1rem 2rem;
-      // border: 2px solid yellow;
       margin-right: 3rem;
 
       @media only screen and (max-width: $bp-mobile) {
@@ -60,6 +59,7 @@
         margin-left: 3rem;
       }
     }
+
     &__item {
       list-style-type: none;
       &:not(:last-child) {
@@ -69,10 +69,17 @@
         }
       }
     }
+
     &__link {
       text-decoration: none;
       color: #fff;
       font-size: 1.4rem;
+      font-weight: bold;
+      transition: transform 2s;
+
+      &:hover {
+        border-bottom: 2px solid $btn-bg;
+      }
 
       @media only screen and (max-width: $bp-mobile) {
         color: $primary-bg-color;

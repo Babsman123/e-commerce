@@ -406,6 +406,10 @@ body {
         @media only screen and (max-width: 37.5em) {
           .section--claim .claim-type a:not(:last-child) {
             margin-right: 1rem; } }
+      @media only screen and (max-width: 37.5em) {
+        .section--claim .claim-type a {
+          font-size: 1rem;
+          padding: 1.3rem 1.2rem; } }
   .section--claim .online-claim {
     display: flex;
     flex-direction: column;

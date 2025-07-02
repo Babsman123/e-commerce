@@ -356,6 +356,9 @@ body {
   .section--plan ul {
     color: #fff;
     font-size: 1.1rem; }
+    .section--plan ul p {
+      font-weight: bold;
+      font-size: 1.3rem; }
     .section--plan ul li {
       padding: 1rem;
       font-weight: 500;

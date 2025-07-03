@@ -237,6 +237,8 @@ body {
       background-color: #ede4d9;
       box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.5);
       animation: moveInBottom 2s ease-out; }
+    .user--section .home-btn .payment {
+      width: 30rem; }
 
 .login-form--container {
   display: flex;
